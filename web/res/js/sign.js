@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+var reg = $("#regForm"), log = $("#logForm");
+var pass = $("#pass"), cpass = $("#rpass");
+
 function formError(error) {
     if (error === true) {
         $(".form-container").addClass("error");
@@ -12,49 +15,45 @@ function formError(error) {
     }
 }
 
-function valReg() {
-
-}
-
 $(document).ready(function () {
-    $("form input").keyup(function(){
-        if ($(this).is(":invalid") === true) {
-            formError(true);
-        } else {
-            formError(false);
-        }
-    });
-    $("#logForm").on("submit", function (e) {
-        e.preventDefault();
-        var i = 0;
-        $("#logForm").find("input:invalid").each(function () {
-            i++;
-        });
-        if (i >= 0) {
-            formError(true);
-        } else {
-            formError(false);
-            this.submit;
-        }
-    });
-    $("#regForm").on("submit", function (e) {
-        e.preventDefault();
-        var i=0;
-        var pass = $("#pass"), cpass = $("#rpass");
+    $("form input").keyup(function () {
         if (pass.val() !== cpass.val()) {
             cpass.get(0).setCustomValidity("Passwords Don't Match");
         } else {
             cpass.get(0).setCustomValidity('');
         }
-        $("#regForm").find("input:invalid").each(function () {
+        if ($(this).is(":invalid") === true) {
+            formError(true);
+            console.log("Error, input:invalid is" + $(this).toString());
+        } else {
+            formError(false);
+        }
+    });
+    log.on("submit", function (e) {
+        e.preventDefault();
+        var i = 0;
+        log.find("input:invalid").each(function () {
             i++;
         });
-        if (i >= 0) {
+        if (i > 0) {
             formError(true);
         } else {
             formError(false);
-            this.submit;
+            this.submit();
         }
     });
-    
+    reg.on("submit", function (e) {
+        e.preventDefault();
+        var i = 0;
+        reg.find("input:invalid").each(function () {
+            i++;
+        });
+        if (i > 0) {
+            formError(true);
+        } else {
+            formError(false);
+            console.log("Submitting");
+            this.submit();
+        }
+    });
 });

@@ -6,13 +6,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<% 
+    String uri = def.Misc.uri(request.getRequestURI());
+    
+%>
 <html>
     <head>
         <jsp:include page="/head"/>
-        <% String uri = def.Misc.uri(request.getRequestURI()); %>
         <link rel="stylesheet" type="text/css" href="/CS121/res/css/sign.css"/>
-        <title><% if(uri.contains("admin")) { %>Admin <% } if (uri.contains("login")) { %>Login<% } else if (uri.contains("signup")) { %>Sign Up<% } %></title>
+        <title><% if (uri.contains("admin")) { %>Admin <% }if (uri.contains("login")) { %>Login<% } else if (uri.contains("signup")) { %>Sign Up<% }%></title>
     </head>
     <body>
         <jsp:include page="/header"/>
@@ -23,11 +25,11 @@
 
                 <% if (uri.contains("login")) { %>
 
-                <form id="logForm" name="login" action="login_go" method="post">
+                <form id="logForm" name="login" action="/CS121/login_go" method="get">
 
                     <h2 class="form-title"> Login </h2>
 
-                    <input type="text" name="type" value="<% if(uri.contains("admin")) { %>admin<% } else if(uri.contains("user")) { %>user<% } %>" hidden/>
+                    <input type="text" name="type" value="<% if (uri.contains("admin")) { %>admin<% } else if (uri.contains("user")) { %>user<% } %>" hidden/>
 
                     <div class="s-group">
                         <label for="lemail">Email :</label>
@@ -53,11 +55,11 @@
 
                 <% } else if (uri.contains("signup")) { %>
 
-                <form id="regForm" name="register" class="form" action="register_go" method="post">
+                <form id="regForm" name="register" class="form" action="/CS121/register_go" method="get">
 
                     <h2 class="form-title"> Sign Up </h2>
 
-                    <input type="text" name="type" value="<% if(uri.contains("admin")) { %>admin<% } else if(uri.contains("user")) { %>user<% } %>" hidden/>
+                    <input type="text" name="type" value="<% if (uri.contains("admin")) { %>admin<% } else if (uri.contains("user")) { %>user<% } %>" hidden/>
 
                     <div class="s-group">
                         <label for="fname">Full Name : <span class="input-red" title="Required Field">*</span></label>
