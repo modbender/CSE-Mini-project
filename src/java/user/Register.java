@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;  
 
 import static dbconn.Connect.st;
 
@@ -20,9 +22,11 @@ import static dbconn.Connect.st;
 public class Register extends HttpServlet {
 
     public void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        boolean er = false;
+        boolean check = false;
         try {
-            String type, name, email, dob, phno, pass, cols;
+            SimpleDateFormat dForm = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date tday = new Date(); 
+            String type, name, email, dob, phno, pass, cols = "", vals = "";
             type = request.getParameter("type");
             name = request.getParameter("fname");
             email = request.getParameter("email");
@@ -31,14 +35,23 @@ public class Register extends HttpServlet {
             pass = request.getParameter("pass");
             if (dob == null && phno == null) {
                 cols = "utype,uname,uemail,udate,upass";
-            } else if (dob == null) {
+                vals = "'"+type+"','"+name+"','"+email+"','"+dForm.format(tday)+"','"+pass+"'";
+            } else if (dob == null && phno != null) {
                 cols = "utype,uname,uemail,uphno,udate,upass";
-            } else if (phno == null) {
+                vals = "'"+type+"','"+name+"','"+email+"',"+phno+",'"+dForm.format(tday)+"','"+pass+"'";
+            } else if (dob != null && phno == null) {
                 cols = "utype,uname,uemail,udob,udate,upass";
-            } else {
+                vals = "'"+type+"','"+name+"','"+email+"','"+dob+"','"+dForm.format(tday)+"','"+pass+"'";
+            } else if (dob != null && phno != null) {
                 cols = "utype,uname,uemail,udob,uphno,udate,upass";
+                vals = "'"+type+"','"+name+"','"+email+"','"+dob+"',"+phno+",'"+dForm.format(tday)+"','"+pass+"'";
             }
-            er = st.executeUpdate("insert into users("+cols+") values(") > 0;
+            check = st.executeUpdate("insert into users("+cols+") values("+vals+");") > 0;
+            if(check == true){
+                response.sendRedirect("loginS.jsp?type=Signup&signReport=Success");
+            }else{
+                response.sendRedirect("loginS.jsp?type=Login&signReport=Fail");
+            }
         }catch(Exception e){
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, e);
         }

@@ -8,12 +8,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="/layout/head.jsp"/>
+        <jsp:include page="/head"/>
         <title></title>
     </head>
     <body>
-        <jsp:include page="/layout/header.jsp"/>
+        <jsp:include page="/header"/>
         
-        <jsp:include page="/layout/footer.jsp"/>
+        <jsp:include page="/footer"/>
     </body>
 </html>

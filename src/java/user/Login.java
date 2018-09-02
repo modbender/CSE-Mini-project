@@ -17,8 +17,6 @@ public class Login extends HttpServlet {
 
     public void processRequest(HttpServletRequest request, HttpServletResponse response) {
         try{
-            dbconn.Connect.main(null);
-            dbconn.Db.main(null);
             
         }catch(Exception e){
             System.out.println(e.getMessage());

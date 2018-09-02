@@ -1,4 +1,4 @@
-<script src="res/js/basic.js"></script>
+<script src="/CS121/res/js/basic.js"></script>
 <footer>
     
 </footer>

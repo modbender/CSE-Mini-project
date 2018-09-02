@@ -6,27 +6,28 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
-        <jsp:include page="layout/head.jsp"/>
+        <jsp:include page="/head"/>
         <% String uri = def.Misc.uri(request.getRequestURI()); %>
-        <link rel="stylesheet" type="text/css" href="res/css/sign.css"/>
-        <title><% if (uri.equals("login")) { %>Login<% } else if (uri.equals("signup")) { %>Sign Up<% } %></title>
+        <link rel="stylesheet" type="text/css" href="/CS121/res/css/sign.css"/>
+        <title><% if(uri.contains("admin")) { %>Admin <% } if (uri.contains("login")) { %>Login<% } else if (uri.contains("signup")) { %>Sign Up<% } %></title>
     </head>
     <body>
-        <jsp:include page="layout/header.jsp"/>
-        <% out.print(uri); %>
+        <jsp:include page="/header"/>
+        <%=uri%>
         <div class="sign-container">
 
             <div class="form-container">
 
-                <% if (uri.equals("login")) { %>
+                <% if (uri.contains("login")) { %>
 
-                <form id="logForm" name="login" class="form" action="login_go" method="post">
+                <form id="logForm" name="login" action="login_go" method="post">
 
                     <h2 class="form-title"> Login </h2>
-                    
-                    <input type="text" name="type" value="user" hidden/>
+
+                    <input type="text" name="type" value="<% if(uri.contains("admin")) { %>admin<% } else if(uri.contains("user")) { %>user<% } %>" hidden/>
 
                     <div class="s-group">
                         <label for="lemail">Email :</label>
@@ -50,13 +51,13 @@
 
                 </form>
 
-                <% } else if (uri.equals("signup")) { %>
+                <% } else if (uri.contains("signup")) { %>
 
                 <form id="regForm" name="register" class="form" action="register_go" method="post">
 
                     <h2 class="form-title"> Sign Up </h2>
 
-                    <input type="text" name="type" value="user" hidden/>
+                    <input type="text" name="type" value="<% if(uri.contains("admin")) { %>admin<% } else if(uri.contains("user")) { %>user<% } %>" hidden/>
 
                     <div class="s-group">
                         <label for="fname">Full Name : <span class="input-red" title="Required Field">*</span></label>
@@ -99,7 +100,7 @@
             </div>
 
         </div>
-        <script src="res/js/sign.js"></script>
-        <jsp:include page="layout/footer.jsp"/>
+        <script src="/CS121/res/js/sign.js"></script>
+        <jsp:include page="/footer"/>
     </body>
 </html>
