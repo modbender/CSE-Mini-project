@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="input-checkbox">
-                        <input id="showlpass" type="checkbox" onclick=""/>
+                        <input id="showlpass" type="checkbox"/>
                         <label for="showlpass">Show Password</label>
                     </div>
 
@@ -89,6 +89,11 @@
                     <div class="s-group">
                         <label for="rpass"> Retype Password : <span class="input-red" title="Required Field">*</span></label>
                         <input id="rpass" type="password" placeholder="Retype your password" autocomplete="off" readonly required/>
+                    </div>
+                    
+                    <div class="input-checkbox">
+                        <input id="showrpass" type="checkbox"/>
+                        <label for="showlpass">Show Password</label>
                     </div>
 
                     <div class="form-block">
