@@ -60,7 +60,6 @@ public class Register extends HttpServlet {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, e);
             System.out.println(e);
         }
-
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

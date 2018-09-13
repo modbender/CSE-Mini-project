@@ -4,17 +4,19 @@
     Author     : Yashas Hr
 --%>
 
+<%@page import="def.Misc,java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<% 
+<%
     String uri = def.Misc.uri(request.getRequestURI());
-    
+
 %>
 <html>
     <head>
         <jsp:include page="/head"/>
         <link rel="stylesheet" type="text/css" href="/CS121/res/css/sign.css"/>
-        <title><% if (uri.contains("admin")) { %>Admin <% }if (uri.contains("login")) { %>Login<% } else if (uri.contains("signup")) { %>Sign Up<% }%></title>
+        <title><% if (uri.contains("admin")) { %>Admin <% }
+            if (uri.contains("login")) { %>Login<% } else if (uri.contains("signup")) { %>Sign Up<% }%></title>
     </head>
     <body>
         <jsp:include page="/header"/>
@@ -52,9 +54,22 @@
                     </div>
 
                 </form>
-
-                <% } else if (uri.contains("signup")) { %>
-
+                <%
+                } else if (uri.contains("signup")) {
+                    String[] mails = Misc.umails().toArray(new String[0]);
+                %>
+                <script>
+                    var mails = Array();
+                    $(document).ready(function(){
+                        <% 
+                            for(int i = 0; i < mails.length; i++){
+                                %>
+                                        mails[<%=i%>]="<%=mails[i]%>";
+                                <%
+                            }
+                        %>
+                    });
+                </script>
                 <form id="regForm" name="register" class="form" action="/CS121/register_go" method="get">
 
                     <h2 class="form-title"> Sign Up </h2>
@@ -68,7 +83,7 @@
 
                     <div class="s-group">
                         <label for="email">Email : <span class="input-red" title="Required Field">*</span></label>
-                        <input id="email" type="email" placeholder="Used for login" name="email" autocomplete="off" readonly required/>
+                        <input id="email" type="email" placeholder="Used for login" name="email" autocomplete="off" onkeyup="ncheck()" readonly required/>
                     </div>
 
                     <div class="s-group">
@@ -90,7 +105,7 @@
                         <label for="rpass"> Retype Password : <span class="input-red" title="Required Field">*</span></label>
                         <input id="rpass" type="password" placeholder="Retype your password" autocomplete="off" readonly required/>
                     </div>
-                    
+
                     <div class="input-checkbox">
                         <input id="showrpass" type="checkbox"/>
                         <label for="showlpass">Show Password</label>

@@ -6,6 +6,9 @@
 
 
 $(document).ready(function () {
+    window.onload = function () {
+        var context = new AudioContext();
+    };
     setTimeout(function () {
         $("input[type='text'],input[type='password'],input[type='email'],input[type='tel']").attr('readonly', false);
         $("input[type='text'],input[type='password'],input[type='email'],input[type='tel']").focus();
