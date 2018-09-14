@@ -48,6 +48,44 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+/*QUESTION TIMER BOX*/
+.q-timer-container{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 76%;
+    height: 100px;
+    margin-bottom: 15px;
+}
+.timer-container{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.timer-container:before, .timer-container:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.timer-container:before{
+    bottom: 0;
+    border-bottom: 30px dotted black;
+}
+.timer-container:after{
+    bottom: 0px;
+    left: 0px;
+    border-bottom: 30px dotted gold;
+    transition: all 1s ease-out;
+}
+.timer-container:hover:after{
+    left: 10%;
+    width: 80%;
+}
+/*QUESTION AND OPTION BOX*/
 .q-box-container{
     display: block;
     position: relative;
@@ -166,6 +204,16 @@ body{
     height: 130px;
     cursor: pointer;
 }
+.q-opt.select .opt, .q-opt.lock .opt,.q-opt:hover:not(.select) > .opt{
+    background: linear-gradient(to right,gold, yellow, gold);
+    font-weight: 600;
+}
+.q-opt.select > .l-opt-tr:after, .q-opt.lock > .l-opt-tr:after, .q-opt:hover:not(.select) > .l-opt-tr:after{
+    border-color: transparent !important;
+}
+.q-opt.select > .r-opt-tr:after, .q-opt.lock > .r-opt-tr:after, .q-opt:hover:not(.select) > .r-opt-tr:after{
+    border-color: transparent !important;
+}
 .l-opt-tr, .r-opt-tr{
     position: relative;
     width: 0;
@@ -218,7 +266,7 @@ body{
 }
 .opt table{
     font-size: 28px;
-    width: 107%;
+    width: 118%;
     height: 100%;
     margin-left: -20px;
     vertical-align: middle;
@@ -233,6 +281,6 @@ body{
     margin-left: -3px;
 }
 .opt table tr td:last-child{
-    width: 90%;
+    width: 5%;
     padding: 0 10px;
 }

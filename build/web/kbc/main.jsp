@@ -20,6 +20,21 @@
                 setTimeout(function () {
                     $(".opt").addClass("open");
                 }, 1000);
+                var optc = ["q-opt select", "q-opt lock", "q-opt"];
+                $(".q-opt").click(function () {
+                    if ((!$(this).hasClass("lock") && $(".q-opt.lock").length)||($(this).hasClass("lock"))) {
+                            return;
+                    }
+                    if ($(this).hasClass("select")) {
+                            $(this).find("#lock").addClass("fa-lock");
+                    }
+                    if (!$(this).hasClass("select") && $(".q-opt.select").length) {
+                            $(".q-opt.select").removeClass("select");
+                    }
+                    $(this).each(function () {
+                        this.className = optc[($.inArray(this.className, optc) + 1) % optc.length];
+                    });
+                });
             });
         </script>
     </head>
@@ -29,6 +44,13 @@
             <div class="bg"></div>
 
             <div class="content">
+
+                <div class="q-timer-container">
+                    <div class="timer-container">
+
+                    </div>
+                </div>
+
                 <div class="q-box-container">
                     <div class="q-container">
                         <span class="l-tr"></span>
@@ -49,6 +71,9 @@
                                         <td>
                                             Option 1
                                         </td>
+                                        <td>
+                                            <i id="lock" class="fas"></i>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -57,9 +82,19 @@
                         <div class="q-opt">
                             <span class="l-opt-tr"></span>
                             <div class="opt">
-                                <span id="opt-2">
-
-                                </span>
+                                <table id="opt-2">
+                                    <tr>
+                                        <td>
+                                            B
+                                        </td>
+                                        <td>
+                                            Option 2
+                                        </td>
+                                        <td>
+                                            <i id="lock" class="fas"></i>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                             <span class="r-opt-tr"></span>
                         </div>
