@@ -42,4 +42,13 @@ public class Misc {
         }
         return mails;
     }
+    public static String res(String f){
+        String res = "/CS121/res/";
+        String t = f.substring(f.lastIndexOf(".")+1);
+        if(t.equals("jpg")||t.equals("png")||t.equals("gif")||t.equals("bmp")||t.equals("jpeg")||t.equals("png")||t.equals("ico")){
+            return res+"img/"+f;
+        }else{
+            return res+t+"/"+f;
+        }
+    }
 }

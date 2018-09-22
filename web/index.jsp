@@ -8,24 +8,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="layout/head.jsp"/>
+        <jsp:include page="/head"/>
         <link rel="stylesheet" type="text/css" href="res/css/home.css"/>
         <title>Home</title>
     </head>
     <body>
-        <jsp:include page="layout/header.jsp"/>
+        <jsp:include page="/header"/>
         
         <div class="container">
             <div class="panel">
                 <div class="lg-panel"></div>
+                <div class="lg-overlay"></div>
                 <div class="panel-content">
                     
                     <div class="panel-items">
                         <div class="panel-item">
-                            <h1 class="panel-title">Best Quiz App Ever</h1>
+                            <h1 class="panel-title font-mont">Kaun Banega Crorepati<br/>Quiz Database </h1>
                         </div>
-                        <div class="panel-item">
-                            <a class="btn-white" href="#"> <i class="fas fa-th"></i> </a>
+                        <div class="panel-item font-mont start">
+                            <a class="btn-white-green" href="kbc/main"> START KBC 
+                                <i id="btn-start" class="fas fa-play"></i> 
+                            </a>
                         </div>
                     </div>
                     
@@ -36,6 +39,6 @@
             </div>
         </div>
         
-        <jsp:include page="layout/footer.jsp"/>
+        <jsp:include page="/footer"/>
     </body>
 </html>

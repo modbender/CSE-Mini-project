@@ -13,6 +13,6 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/CS121/res/css/basic.css"/>
+<link rel="stylesheet" type="text/css" href="<%=Misc.res("basic.css")%>"/>
 
 <script src="/CS121/res/js/jquery-3.3.1.min.js"></script>

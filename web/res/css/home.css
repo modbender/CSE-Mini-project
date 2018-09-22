@@ -19,10 +19,22 @@ and open the template in the editor.
     overflow: hidden;
 }
 .lg-panel{
-    background: radial-gradient(circle at 100% -50%, rgb(255,38,111),rgb(255,113,50),rgb(255,174,0));
+    background: url('/CS121/res/img/kbc-b.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+/*        radial-gradient(circle at 100% -50%, rgb(255,38,111),rgb(255,113,50),rgb(255,174,0));*/
     width: 100%;
     height: 100%;
     z-index: 20;
+}
+.lg-overlay{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 }
 .panel-content{
     display: block;
@@ -54,28 +66,29 @@ and open the template in the editor.
     justify-content: space-evenly;
     z-index: 30;
 }
-
-.panel-title{
-    color: #fff;
+.font-mont{
     font-family: Montserrat;
+}
+.panel-title{
+    color: #eee;
     white-space: nowrap;
     font-weight: 900;
     font-size: 70px;
     letter-spacing: 9px;
 }
-.panel .btn-white{
-    background-color: #eee;
-    font-size: 30px;
-    color: #222;
-    border-radius: 30px;
-    padding: 15px 40px;
-    cursor: pointer;
+.start > .btn-white-green{
+    font-size: 64px;
+    font-weight: 900;
 }
-.panel .btn-white:hover{
-    background-color: #222;
-    color: #eee;
+.start-play{
+    content:'';
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background-image: url('/CS121/res/img/kbc-logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
 /*Responsive*/
 @media (min-width: 600px){
     .panel-content{
