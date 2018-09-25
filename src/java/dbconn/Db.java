@@ -23,14 +23,18 @@ public class Db {
                     found = true;
                 }
             }
+            String users = "create table if not exists users(uid int(10) unsigned PRIMARY KEY AUTO_INCREMENT,utype varchar(20) NOT NULL,uname varchar(150) NOT NULL,uemail varchar(100) UNIQUE NOT NULL,udob varchar(20),uphno int(10),udate varchar(50) NOT NULL,upass varchar(100) NOT NULL) AUTO_INCREMENT=1;";
+            String qs = "create table if not exists qs(qid int(10) unsigned  PRIMARY KEY AUTO_INCREMENT,q varchar(500) UNIQUE NOT NULL,options varchar(1000) NOT NULL) AUTO_INCREMENT=1;";
+            String feeds = "create table if not exists feeds(fid int(10) unsigned  PRIMARY KEY AUTO_INCREMENT,uid int(10) unsigned NOT NULL,qid int(10) unsigned NOT NULL,feed varchar(10) NOT NULL,foreign key (uid) references users(uid) on delete cascade,foreign key (qid) references qs(qid) on delete cascade) AUTO_INCREMENT=1;";
             if (found == true) {
                 st.executeUpdate("use project_cs121");
-                st.executeUpdate("create table if not exists users(uid int(10) unsigned PRIMARY KEY AUTO_INCREMENT,utype varchar(20) NOT NULL,uname varchar(150) NOT NULL,uemail varchar(100) UNIQUE NOT NULL,udob varchar(20),uphno int(10),uimg varchar(255),udate varchar(50) NOT NULL,upass varchar(100) NOT NULL) AUTO_INCREMENT=1;");
             } else {
                 st.executeUpdate("create database project_cs121");
                 st.executeUpdate("use project_cs121");
-                st.executeUpdate("create table users(uid int(10) unsigned PRIMARY KEY AUTO_INCREMENT,utype varchar(20) NOT NULL,uname varchar(150) NOT NULL,uemail varchar(100) UNIQUE NOT NULL,udob varchar(20),uphno int(10),uimg varchar(255),udate varchar(50) NOT NULL,upass varchar(100) NOT NULL) AUTO_INCREMENT=1;");
             }
+            st.executeUpdate(users);
+            st.executeUpdate(qs);
+            st.executeUpdate(feeds);
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\nRaw: " + e);
         }

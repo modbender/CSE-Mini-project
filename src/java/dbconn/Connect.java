@@ -16,7 +16,6 @@ import java.util.Arrays;
  */
 public class Connect {
 
-    static int i = 0;
     public static Connection con;
     public static Statement st = null;
 
