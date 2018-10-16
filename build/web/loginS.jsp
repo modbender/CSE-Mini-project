@@ -33,22 +33,10 @@
             }
             .rep-box{
                 position: relative;
-                background-color: rgba(200,200,200,0.1);
-                background-image: url('/CS121/res/img/ajax-loader.gif');
                 background-repeat: no-repeat;
                 background-position: center;
                 width: 500px;
                 height: 500px;
-            }
-            .rep-box:before{
-                content: "";
-                background-color: rgba(200,200,200,0.6);
-                position: absolute;
-                top:0;
-                left:0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
             }
         </style>
     </head>
@@ -57,7 +45,13 @@
             <div class="rep-box">
                 <div class="gif">  </div>
                 <div class="msg">
-                    
+                    <h1 style="font-size:85px;white-space: nowrap"><%=type%> 
+                        <% if(rep.equals("Fail")){ %>
+                        <span style="color:red"><%=rep%></span>
+                        <% }else{ %>
+                        <span style="color:greenyellow"><%=rep%></span>
+                        <% } %>
+                    </h1>
                 </div>
             </div>
         </div>

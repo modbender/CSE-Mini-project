@@ -15,17 +15,28 @@ and open the template in the editor.
 .panel{
     position: relative;
     width: 100%;
-    height: 1040px;
+    height: 107.2vh;
     overflow: hidden;
 }
 .lg-panel{
-    background: url('/CS121/res/img/kbc-b.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 /*        radial-gradient(circle at 100% -50%, rgb(255,38,111),rgb(255,113,50),rgb(255,174,0));*/
     width: 100%;
     height: 100%;
     z-index: 20;
+}
+.lg-stretch{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+video{
+    object-fit: cover;
 }
 .lg-overlay{
     background-color: rgba(0,0,0,0.5);

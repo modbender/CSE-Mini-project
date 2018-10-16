@@ -40,6 +40,10 @@
         <servlet-name>KBC main</servlet-name>
         <jsp-file>/kbc/main.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>feeds</servlet-name>
+        <servlet-class>user.feeds</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>login_process</servlet-name>
         <url-pattern>/login_go</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>KBC main</servlet-name>
         <url-pattern>/kbc/main</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>feeds</servlet-name>
+        <url-pattern>/feed</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

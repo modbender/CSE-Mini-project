@@ -20,7 +20,6 @@
     </head>
     <body>
         <jsp:include page="/header"/>
-        <%=uri%>
         <div class="sign-container">
 
             <div class="form-container">
@@ -35,12 +34,12 @@
 
                     <div class="s-group">
                         <label for="lemail">Email :</label>
-                        <input id="lemail" type="email" name="uName" autocomplete="off" readonly autofocus required/>
+                        <input id="lemail" type="email" name="lemail" autocomplete="off" readonly autofocus required/>
                     </div>
 
                     <div class="s-group">
                         <label for="lpass">Password : </label>
-                        <input id="lpass" type="password" name="uPass" autocomplete="off" readonly required/>
+                        <input id="lpass" type="password" name="lpass" autocomplete="off" readonly required/>
                     </div>
 
                     <div class="input-checkbox">

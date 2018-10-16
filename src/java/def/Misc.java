@@ -20,6 +20,8 @@ import java.util.logging.Logger;
  */
 public class Misc {
 
+    static String[] options = {"A", "B", "C", "D"};
+
     public static String uri(String url) {
         return url.substring(url.indexOf("/", url.indexOf("/CS121/") + 1) + 1, url.length());
     }
@@ -29,26 +31,41 @@ public class Misc {
             dbconn.Connect.main(null);
         }
     }
-    public static List<String> umails(){
+
+    public static List<String> umails() {
         List<String> mails = new ArrayList<>();
-        try{
+        try {
             checkCon();
             ResultSet r = st.executeQuery("select uemail from users");
-            while(r.next()){
+            while (r.next()) {
                 mails.add(r.getString(1));
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             Logger.getLogger(Misc.class.getName()).log(Level.SEVERE, null, e);
         }
         return mails;
     }
-    public static String res(String f){
+
+    public static String res(String f) {
         String res = "/CS121/res/";
-        String t = f.substring(f.lastIndexOf(".")+1);
-        if(t.equals("jpg")||t.equals("png")||t.equals("gif")||t.equals("bmp")||t.equals("jpeg")||t.equals("png")||t.equals("ico")){
-            return res+"img/"+f;
-        }else{
-            return res+t+"/"+f;
+        String t = f.substring(f.lastIndexOf(".") + 1);
+        if (t.equals("jpg") || t.equals("png") || t.equals("gif") || t.equals("bmp") || t.equals("jpeg") || t.equals("png") || t.equals("ico")) {
+            return res + "img/" + f;
+        } else {
+            return res + t + "/" + f;
         }
+    }
+    public static String kres(String f) {
+        String res = "/CS121/kbc/res/";
+        String t = f.substring(f.lastIndexOf(".") + 1);
+        if (t.equals("jpg") || t.equals("png") || t.equals("gif") || t.equals("bmp") || t.equals("jpeg") || t.equals("png") || t.equals("ico")) {
+            return res + "img/"+f;
+        } else {
+            return res + "/"+f;
+        }
+    }
+
+    public static String opt(int i) {
+        return options[i];
     }
 }

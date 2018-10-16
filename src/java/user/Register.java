@@ -37,10 +37,10 @@ public class Register extends HttpServlet {
             dob = request.getParameter("dob");
             phno = request.getParameter("phno");
             pass = request.getParameter("pass");
-            if(dob == ""){
+            if("".equals(dob)){
                 dob="NULL";
             }
-            if(phno == ""){
+            if("".equals(phno)){
                 phno="NULL";
             }
             cols = "utype,uname,uemail,udob,uphno,udate,upass";
@@ -52,7 +52,7 @@ public class Register extends HttpServlet {
                 response.sendRedirect("loginS.jsp?type=Signup&signReport=Success");
             }else{
                 System.out.print(vals);
-                response.sendRedirect("loginS.jsp?type=Login&signReport=Fail");
+                response.sendRedirect("loginS.jsp?type=Signup&signReport=Fail");
             }
         }catch(SQLException ex){
             System.out.println("SQL ERROR : "+ ex);
