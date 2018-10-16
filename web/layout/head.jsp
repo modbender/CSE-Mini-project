@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="/CS121/res/img/favicon.ico" type="image/x-icon"/>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="<%=Misc.res("basic.css")%>"/>
 
 <script src="/CS121/res/js/jquery-3.3.1.min.js"></script>

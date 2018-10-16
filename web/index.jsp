@@ -4,6 +4,7 @@
     Author     : Yashas Hr
 --%>
 
+<%@page import="def.Misc"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,13 +19,10 @@
         <div class="container">
             <div class="panel">
                 <div class="lg-panel"></div>
-                <img class="lg-stretch" style="object-fit: cover" src="/CS121/res/img/kbc-b.jpg"/>
-                <video id="kbc-vid" class="lg-stretch" onerror="this.error=null;this.style.display='none';" autoplay>
-                    <source src="https://r4---sn-5jucgv5qc5oq-cagz.googlevideo.com/videoplayback?source=youtube&keepalive=yes&dur=241.120&pl=21&itag=135&sparams=aitags%2Cclen%2Cdur%2Cei%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Ckeepalive%2Clmt%2Cmime%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Crequiressl%2Csource%2Cexpire&gir=yes&mime=video%2Fmp4&c=WEB&expire=1538868661&signature=7C87546328CC9F49CF04B42A66855D48221EA776.348F20C27FF9265DE77C5DB6808E57425FDC823E&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C278&initcwndbps=960000&clen=16636741&ipbits=0&mt=1538846961&mv=m&ms=au%2Crdu&key=yt6&ip=49.206.8.253&mm=31%2C29&mn=sn-5jucgv5qc5oq-cagz%2Csn-h557snsl&id=o-AKCHKGtqTB9P6Vw0xFuap1TVTd73PGZPSH582IIKOveW&ei=VfG4W56bCdSd8QO9r6yADQ&fvip=4&lmt=1536267144013913&requiressl=yes"/>
+                <img class="lg-stretch" style="object-fit: cover" src="<%=Misc.res("kbc-b.jpg")%>"/>
+                <video id="kbc-vid" class="lg-stretch" onerror="this.onerror=null;this.style.display='none';" autoplay muted>
+                    <source src="<%=Misc.kres("kbcep.MP4")%>"/>
                 </video>
-                <script>
-                    document.getElementById("kbc-vid").currentTime=16;
-                </script>
                 <div class="lg-overlay"></div>
                 <div class="panel-content">
                     

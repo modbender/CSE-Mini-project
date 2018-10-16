@@ -61,7 +61,7 @@ public class Misc {
         if (t.equals("jpg") || t.equals("png") || t.equals("gif") || t.equals("bmp") || t.equals("jpeg") || t.equals("png") || t.equals("ico")) {
             return res + "img/"+f;
         } else {
-            return res + "/"+f;
+            return res+f;
         }
     }
 

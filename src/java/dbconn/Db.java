@@ -22,6 +22,7 @@ public class Db {
             while (rs.next()) {
                 if (rs.getString("Database").equals(db)) {
                     found = true;
+                    break;
                 }
             }
             String users = "create table if not exists users(uid int(10) unsigned PRIMARY KEY AUTO_INCREMENT,utype varchar(20) NOT NULL,uname varchar(150) NOT NULL,uemail varchar(100) UNIQUE NOT NULL,udob varchar(20),uphno int(10),udate varchar(50) NOT NULL,upass varchar(100) NOT NULL) AUTO_INCREMENT=1;";

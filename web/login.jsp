@@ -20,6 +20,13 @@
     </head>
     <body>
         <jsp:include page="/header"/>
+
+        <img class="lg-stretch" style="object-fit: cover" src="<%=Misc.res("kbc-b.jpg")%>"/>
+        <video id="kbc-vid" class="lg-stretch" onerror="this.error=null;this.style.display='none';" autoplay muted>
+            <source src="<%=Misc.kres("kbcep.MP4")%>"/>
+        </video>
+        <div class="lg-overlay"></div>
+
         <div class="sign-container">
 
             <div class="form-container">
@@ -59,14 +66,14 @@
                 %>
                 <script>
                     var mails = Array();
-                    $(document).ready(function(){
-                        <% 
-                            for(int i = 0; i < mails.length; i++){
-                                %>
-                                        mails[<%=i%>]="<%=mails[i]%>";
-                                <%
-                            }
-                        %>
+                    $(document).ready(function () {
+                    <%
+                            for (int i = 0; i < mails.length; i++) {
+                    %>
+                        mails[<%=i%>] = "<%=mails[i]%>";
+                    <%
+                                    }
+                    %>
                     });
                 </script>
                 <form id="regForm" name="register" class="form" action="/CS121/register_go" method="get">

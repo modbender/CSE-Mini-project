@@ -6,9 +6,16 @@
 
 
 $(document).ready(function () {
-    window.onload = function () {
-        var context = new AudioContext();
-    };
+    var kvid = $("#kbc-vid").get(0),sbtn = $("#state-btn"),st = $("#state"), vbtn=$("#volume-btn"),vol = $("#volume");
+    kvid.currentTime = 25;
+    sbtn.click(function(){
+        st.toggleClass("fa-play fa-pause");
+        kvid.paused ? kvid.play() : kvid.pause();
+    });
+    vbtn.click(function () {
+        vol.toggleClass("fa-volume-mute fa-volume-up");
+        kvid.muted = kvid.muted ? false : true ;
+    });
     setTimeout(function () {
         $("input[type='text'],input[type='password'],input[type='email'],input[type='tel']").attr('readonly', false);
         $("input[type='text'],input[type='password'],input[type='email'],input[type='tel']").focus();
@@ -38,5 +45,5 @@ function openNav() {
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("main").style.marginLeft = "0";
 }

@@ -7,7 +7,27 @@ and open the template in the editor.
     Created on : 25 Aug, 2018, 10:01:37 PM
     Author     : Yashas Hr
 */
-
+.lg-stretch{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+video{
+    object-fit: cover;
+}
+.lg-overlay{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
 .sign-container{
     display: flex;
     justify-content: center;
