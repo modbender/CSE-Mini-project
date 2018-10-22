@@ -22,7 +22,7 @@
         <jsp:include page="/header"/>
 
         <img class="lg-stretch" style="object-fit: cover" src="<%=Misc.res("kbc-b.jpg")%>"/>
-        <video id="kbc-vid" class="lg-stretch" onerror="this.error=null;this.style.display='none';" autoplay muted>
+        <video id="kbc-vid" class="lg-stretch" onerror="this.error=null;this.style.display='none';" autoplay muted loop>
             <source src="<%=Misc.kres("kbcep.MP4")%>"/>
         </video>
         <div class="lg-overlay"></div>
@@ -76,7 +76,7 @@
                     %>
                     });
                 </script>
-                <form id="regForm" name="register" class="form" action="/CS121/register_go" method="get">
+                <form id="regForm" name="register" class="form" action="/CS121/register_go" method="get" style="z-index: 50">
 
                     <h2 class="form-title"> Sign Up </h2>
 

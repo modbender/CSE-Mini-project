@@ -15,20 +15,21 @@
     </head>
     <body>
         <jsp:include page="/header"/>
-        
+
         <div class="container">
+            <img class="lg-stretch" style="object-fit: cover" src="<%=Misc.res("kbc-b.jpg")%>"/>
+            <video id="kbc-vid" class="lg-stretch" onerror="this.onerror=null;this.style.display='none';" autoplay muted loop>
+                <source src="<%=Misc.kres("kbcep.MP4")%>"/>
+            </video>
+            <div class="lg-overlay"></div>
             <div class="panel">
                 <div class="lg-panel"></div>
-                <img class="lg-stretch" style="object-fit: cover" src="<%=Misc.res("kbc-b.jpg")%>"/>
-                <video id="kbc-vid" class="lg-stretch" onerror="this.onerror=null;this.style.display='none';" autoplay muted>
-                    <source src="<%=Misc.kres("kbcep.MP4")%>"/>
-                </video>
-                <div class="lg-overlay"></div>
+
                 <div class="panel-content">
-                    
+
                     <div class="panel-items">
                         <div class="panel-item">
-                            <h1 class="panel-title font-mont">Kaun Banega Crorepati<br/>Quiz Database </h1>
+                            <h1 class="panel-title font-mont">Kaun Banega Crorepati</h1>
                         </div>
                         <div class="panel-item font-mont start">
                             <a class="btn-white-green" href="kbc/main"> START KBC 
@@ -36,12 +37,12 @@
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            
+
         </div>
-        
+
         <jsp:include page="/footer"/>
     </body>
 </html>
