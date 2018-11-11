@@ -7,6 +7,8 @@ and open the template in the editor.
     Created on : 11 Sep, 2018, 10:26:31 PM
     Author     : Yashas Hr
 */
+@import url('/CS121/res/fonts/Ubuntu-Regular.ttf');
+@import url('/CS121/res/fonts/Montserrat-ExtraBold.ttf');
 div{
     box-sizing: border-box;
 }
@@ -60,10 +62,76 @@ body{
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 
+.pop{
+    position: absolute;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 100px;
+    padding: 10px 7px;
+    height: 50px;
+    right: -315px;
+    bottom: 25px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+}
+#pop-v, #pop-x{
+    display: none;
+    padding-right: 5px;
+}
+.pop-text{
+    color: #eee;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: 900;
+}
+.pop.success,.pop.fail{
+    opacity: 1;
+    right: 15px;
+    transition: 1s;
+}
+.pop.success{
+    background: rgba(142, 214, 100,0.7);
+    border-color: #273B1C;
+}
+.pop.success > .pop-text:after{
+    content: "Success";
+}
+.pop.success > #pop-v{
+    display: inline-block;
+    color: #273B1C;
+}
+.pop.fail{
+    background: rgba(255, 27, 28, 0.7);
+    border-color: #740D0D;
+}
+.pop.fail > .pop-text:after{
+    content: "Error";
+}
+.pop.fail > #pop-x{
+    display: inline-block;
+    color: #740D0D;
+}
+.op-1{
+    opacity: 1;
+}
+.op-0{
+    opacity: 0;
+}
+.fo-animate{
+    animation: fade-out 4s;
+    animation-delay: 3s;
+}
+@keyframes fade-out{
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
 
 .container .bg{
     display: block;
@@ -196,7 +264,9 @@ body{
     width: 100% !important;
 }
 .q, .opt{
-    display: inline-block;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
     background: linear-gradient(to right, lightskyblue, aqua, lightskyblue);
     border-top: 5px solid gold;
     border-bottom: 5px solid gold;
@@ -206,6 +276,9 @@ body{
 }
 .q{
     height: 170px;
+}
+#q{
+    font-size: xx-large;
 }
 .q-opt-row{
     display: inline-flex;
@@ -290,10 +363,10 @@ body{
     display: none;
 }
 .opt table{
-    font-size: 28px;
-    width: 118%;
+    font-size: x-large;
+    width: 110%;
     height: 100%;
-    margin-left: -20px;
+    margin-left: -35px;
     vertical-align: middle;
 }
 .opt table tr td:first-child{
@@ -310,7 +383,14 @@ body{
     width: 5%;
     padding: 0 10px;
 }
-
+.no_select{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 /*BOTTOM BAR*/
 
@@ -332,9 +412,10 @@ body{
     outline: 0;
     cursor: pointer;
 }
-.kbc-btn.hidden{
-    display: none;
-}
 .kbc-btn:hover{
     background: linear-gradient(to right, gold 0%,lightgoldenrodyellow 50%,gold 100%);
+}
+.kbc-btn:disabled{
+    background: linear-gradient(to right, grey, white, grey);
+    pointer-events: none;
 }

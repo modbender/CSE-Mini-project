@@ -9,6 +9,8 @@ and open the template in the editor.
 */
 
 /*HOME CONTENT*/
+@import url('/CS121/res/fonts/Ubuntu-Regular.ttf');
+@import url('/CS121/res/fonts/Montserrat-ExtraBold.ttf');
 .container{
     margin-top: -70px;
 }
@@ -78,7 +80,7 @@ video{
     z-index: 30;
 }
 .font-mont{
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
 }
 .panel-title{
     color: #eee;

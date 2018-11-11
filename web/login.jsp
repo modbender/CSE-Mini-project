@@ -33,7 +33,7 @@
 
                 <% if (uri.contains("login")) { %>
 
-                <form id="logForm" name="login" action="/CS121/login_go" method="get">
+                <form id="logForm" name="login" action="/CS121/login_go" method="post">
 
                     <h2 class="form-title"> Login </h2>
 

@@ -9,6 +9,8 @@ and open the template in the editor.
 */
 
 /*Basic Theme*/
+@import url('/CS121/res/fonts/Ubuntu-Regular.ttf');
+@import url('/CS121/res/fonts/Montserrat-ExtraBold.ttf');
 html{
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;

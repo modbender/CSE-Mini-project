@@ -33,16 +33,60 @@
         <jsp-file>/kbc/kbcheader.jsp</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name>KBC footer</servlet-name>
-        <jsp-file>/kbc/kbcfooter.jsp</jsp-file>
-    </servlet>
-    <servlet>
         <servlet-name>KBC main</servlet-name>
         <jsp-file>/kbc/main.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>feeds</servlet-name>
-        <servlet-class>user.feeds</servlet-class>
+        <servlet-class>user.Feeds</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login Result</servlet-name>
+        <jsp-file>/loginS.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>KbcResults</servlet-name>
+        <servlet-class>def.KbcResults</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Reset</servlet-name>
+        <servlet-class>dbconn.Reset</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddQ</servlet-name>
+        <servlet-class>user.AddQ</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin Panel</servlet-name>
+        <jsp-file>/user/frame.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin head</servlet-name>
+        <jsp-file>/user/ahead.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin header</servlet-name>
+        <jsp-file>/user/aheader.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Dash</servlet-name>
+        <jsp-file>/user/dash.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ATools</servlet-name>
+        <jsp-file>/user/tools.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>QAdd</servlet-name>
+        <jsp-file>/user/addQ.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Tables</servlet-name>
+        <jsp-file>/user/tables.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <jsp-file>/user/logout.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>login_process</servlet-name>
@@ -85,16 +129,60 @@
         <url-pattern>/khead</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>KBC footer</servlet-name>
-        <url-pattern>/kfooter</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>KBC main</servlet-name>
         <url-pattern>/kbc/main</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Login Result</servlet-name>
+        <url-pattern>/loginResult</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>feeds</servlet-name>
-        <url-pattern>/feed</url-pattern>
+        <url-pattern>/kbc/feed</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KbcResults</servlet-name>
+        <url-pattern>/kbc/results</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reset</servlet-name>
+        <url-pattern>/reset</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddQ</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin Panel</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin head</servlet-name>
+        <url-pattern>/ahead</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin header</servlet-name>
+        <url-pattern>/aheader</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Dash</servlet-name>
+        <url-pattern>/dash</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ATools</servlet-name>
+        <url-pattern>/tools</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QAdd</servlet-name>
+        <url-pattern>/addQ</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Tables</servlet-name>
+        <url-pattern>/tabs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -102,7 +190,7 @@
         </session-timeout>
     </session-config>
     <servlet>
-        <servlet-name>profile</servlet-name>
+        <servlet-name>AProfile</servlet-name>
         <jsp-file>/user/profile.jsp</jsp-file>
     </servlet>
     <servlet>
@@ -114,7 +202,7 @@
         <jsp-file>/login.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>profile</servlet-name>
+        <servlet-name>AProfile</servlet-name>
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <welcome-file-list>

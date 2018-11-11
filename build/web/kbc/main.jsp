@@ -14,7 +14,7 @@
         <jsp:include page="/khead"/>
         <title>KBC Quiz</title>
         <script>
-            var qid = [], q = [], options = [], pause = false;
+            var qid = [], q = [], options = [], pause = false,chosen;
             <%
                 int i = 0;
 //                int[] qids = new int[15];
@@ -35,24 +35,7 @@
                 }
             %>
             var curQ = 0;
-            var qelem = document.getElementById('q');
-            var optelem = [
-                document.getElementById("opt-cont-A"),
-                document.getElementById("opt-cont-B"),
-                document.getElementById("opt-cont-C"),
-                document.getElementById("opt-cont-D")
-            ];
-            const setQuestions = () => {
-                setTimout(function () {
-                    qelem.innerHTML = q[curQ];
-                }, 2000);
-                setOptions();
-            };
-            const setOptions = () => {
-                for (var i = 0; i < 4; i++) {
-                    optelem[i].innerHTML = options[curQ][i];
-                }
-            };
+            console.log(q);
             $(document).ready(function () {
 //                Disable F5 or refresh
 //                window.onbeforeunload = function () {
@@ -77,7 +60,12 @@
                     if ((!$(this).hasClass("lock") && $(".q-opt.lock").length) || ($(this).hasClass("lock"))) {
                         return;
                     }
-                    ($(this).hasClass("select")) ? $(this).find("#lock").addClass("fa-lock") : undefined;
+                    if ($(this).hasClass("select")) {
+                        $(this).find("#lock").addClass("fa-lock");
+                        setSubmit(false);
+                        chosen = parseInt(this.getAttribute("id").split("-")[1]);
+                        pause = true;
+                    }
                     (!$(this).hasClass("select") && $(".q-opt.select").length) ? $(".q-opt.select").removeClass("select") : undefined;
                     $(this).each(function () {
                         cClass(this, optc);
@@ -86,20 +74,25 @@
                 const cClass = (el, optc) => {
                     el.className = optc[($.inArray(el.className, optc) + 1) % optc.length];
                 };
-                const getData = (cuid, qid, feed) => {
-                    $.post("demo_test_post.asp",
-                            {
-                                url: window.location.href,
-                                uid: cuid,
-                                qid: currentQ,
-                                feed: feedA
-                            },
-                            function (data, status) {
-                                status === "success" ? console.log("Inserting Question " + qid + " successfull") : alert("Inserting question to the database failed");
-                            });
-                };
-                startT();
             });
+            const getData = () => {
+                $.post("/CS121/kbc/feed",
+                        {
+                            uid: "<%= session.getAttribute("uid")%>",
+                            qid: qid[curQ],
+                            feed: chosen
+                        },
+                        function (data, status) {
+                            if (status === "success") {
+                                foEffect(true);
+                                setSubmit(true);
+                                curQ++;
+                                setQuestions();
+                            } else {
+                                foEffect(false);
+                            }
+                        });
+            };
         </script>
     </head>
     <body>
@@ -128,7 +121,7 @@
                         <div class="q-container">
                             <span class="l-tr"></span>
                             <div class="q">
-                                <span id="q">
+                                <span id="q" class="no_select">
 
                                 </span>
                             </div>
@@ -150,7 +143,7 @@
                                             <td>
                                                 <%=Misc.opt(j)%>
                                             </td>
-                                            <td id="opt-cont-<%=j%>">
+                                            <td id="opt-cont-<%=j%>" class="no_select">
 
                                             </td>
                                             <td>
@@ -173,7 +166,7 @@
                 </div>
 
                 <div class="bottom-bar">
-                    <button id="submit" class="kbc-btn hidden">
+                    <button id="submit" class="kbc-btn" onclick="getData()" disabled>
                         Submit Answer
                     </button>
                 </div>
@@ -181,7 +174,53 @@
             </div>
 
         </div>
+        <script>
+            var qelem = document.getElementById('q'), sub;
+            var optelem = [
+                document.getElementById("opt-cont-0"),
+                document.getElementById("opt-cont-1"),
+                document.getElementById("opt-cont-2"),
+                document.getElementById("opt-cont-3")
+            ];
+            const resetData = () => {
+                qelem.innerHTML = "";
+                for(j in optelem){
+                    optelem[j].innerHTML = "";
+                }
+                $(".q-opt.lock").find("#lock").removeClass("fa-lock");
+                $(".q-opt.lock").removeClass("lock");
+            };
+            const setOptions = (i) => {
+                if (i < 4) {
+                    setTimeout(function () {
+                        optelem[i].innerHTML = options[curQ][i];
+                        setOptions(i + 1);
+                    }, i === 0 ? 2500 : 500);
+                }
+                if (i === 4) {
+                    setTimeout(function () {
+                        startT();
+                    }, 1000);
+                }
+            };
+            const setQuestions = () => {
+//                history.pushState({curQ},"",location.href+"/"+(curQ+1));
+                if(curQ!==0){resetData();}
+                setTimeout(function () {
+                    qelem.innerHTML = q[curQ];
+                }, curQ===0 ? 300 : 900);
+                setOptions(0);
+            };
+            setTimeout(function () {
+                setQuestions();
+            }, 2000);
+        </script>
+        <div class="pop">
+            <i id="pop-v" class="fas fa-2x fa-check-circle"></i>
+            <i id="pop-x" class="fas fa-2x fa-times-circle"></i>
+            <span class="pop-text"></span>
+        </div>
 
-        <jsp:include page="/kfooter"/>
+        <script src="/CS121/kbc/res/main.js"></script>
     </body>
 </html>

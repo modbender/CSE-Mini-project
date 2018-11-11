@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 //const changeColor = (elem) => {
 //    var rand,color = "";
 //    do{
@@ -13,22 +14,45 @@
 //    elem.css('color',"#"+color);
 //    setTimeout(function(){
 //        changeColor(elem);
-//    },500);
+//    },100);
 //};
 
 $(document).ready(function () {
-    var kvid = $("#kbc-vid").get(0),sbtn = $("#state-btn"),st = $("#state"), vbtn=$("#volume-btn"),vol = $("#volume"),
-        inputs = $("input[type='text'],input[type='password'],input[type='email'],input[type='tel']"),
-        title = $(".panel-title");
+    const getCookie = (cname) => {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    };
+    if(getCookie("vidtime")==""){
+        document.cookie = "vidtime=25; path=/";
+    }
+    window.onbeforeunload = function () {
+        if(getCookie("vidtime")!=""){
+            document.cookie = "vidtime="+kvid.currentTime+"; path=/";
+        }
+    };
+    var kvid = $("#kbc-vid").get(0), sbtn = $("#state-btn"), st = $("#state"), vbtn = $("#volume-btn"), vol = $("#volume"),
+            inputs = $("input[type='text'],input[type='password'],input[type='email'],input[type='tel']"),
+            title = $(".panel-title");
 //    changeColor(title);
-    kvid.currentTime = 25;
-    sbtn.click(function(){
+    kvid.currentTime = parseInt(getCookie("vidtime"));
+    sbtn.click(function () {
         st.toggleClass("fa-play fa-pause");
         kvid.paused ? kvid.play() : kvid.pause();
     });
     vbtn.click(function () {
         vol.toggleClass("fa-volume-mute fa-volume-up");
-        kvid.muted = kvid.muted ? false : true ;
+        kvid.muted = kvid.muted ? false : true;
     });
     setTimeout(function () {
         inputs.attr('readonly', false);

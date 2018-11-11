@@ -12,11 +12,12 @@
 %>
 <html>
     <head>
-<!--        <meta http-equiv="refresh" content="6; url=/CS121/" />-->
+        <meta http-equiv="refresh" content="6; url=/CS121/" />
         <title><%=type%> <%=rep%></title>
         <style>
             body{
                 margin: 0;
+                background: black;
             }
             .container, .rep-box{
                 display: flex;
@@ -24,35 +25,26 @@
                 align-items: center;
                 justify-content: center;
             }
-            .container{
-                background: radial-gradient(circle, red, greenyellow, red);
-                width: 100%;
-                height: 100vh;
-                margin: 0;
-                padding: 0;
-            }
             .rep-box{
                 position: relative;
                 background-repeat: no-repeat;
                 background-position: center;
                 width: 500px;
                 height: 500px;
+                color: white;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="rep-box">
-                <div class="gif">  </div>
-                <div class="msg">
-                    <h1 style="font-size:85px;white-space: nowrap"><%=type%> 
-                        <% if(rep.equals("Fail")){ %>
-                        <span style="color:red"><%=rep%></span>
-                        <% }else{ %>
-                        <span style="color:greenyellow"><%=rep%></span>
-                        <% } %>
-                    </h1>
-                </div>
+                <h1 style="font-size:85px;white-space: nowrap"><%=type%> 
+                    <% if (rep.equals("Fail")) {%>
+                    <span style="color:red"><%=rep%></span>
+                    <% } else {%>
+                    <span style="color:greenyellow"><%=rep%></span>
+                    <% }%>
+                </h1>
             </div>
         </div>
     </body>

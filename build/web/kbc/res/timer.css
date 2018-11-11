@@ -9,29 +9,29 @@ and open the template in the editor.
 */
 
 .progress{
-  position: relative;
-  margin: 4px;
-  float:left;
-  text-align: center;
+    position: relative;
+    margin: 4px;
+    float:left;
+    text-align: center;
 }
 .barOverflow{ /* Wraps the rotating .bar */
-  position: relative;
-  overflow: hidden; /* Comment this line to understand the trick */
-  width: 290px; 
-  height: 145px; /* Half circle (overflow) */
-  margin-bottom: -14px; /* bring the numbers up */
+    position: relative;
+    overflow: hidden; /* Comment this line to understand the trick */
+    width: 290px; 
+    height: 145px; /* Half circle (overflow) */
+    margin-bottom: -14px; /* bring the numbers up */
 }
 .bar{
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 290px; 
-  height: 290px; /* full circle! */
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 35px solid #eee;     /* half gray, */
-  border-bottom-color: #0bf;  /* half azure */
-  border-right-color: #0bf;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 290px; 
+    height: 290px; /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 35px solid #eee;     /* half gray, */
+    border-bottom-color: #0bf;  /* half azure */
+    border-right-color: #0bf;
 }
 .progress-text{
     display: block;
@@ -44,4 +44,51 @@ and open the template in the editor.
     left: 0;
     width: 290px;
     height: 75px;
+}
+.progress-text.end{
+    animation: near-end 3s infinite;
+}
+@keyframes near-end{
+    0%{
+        opacity:0;
+        color: darkgoldenrod;
+        top: -200px;
+        transform: scale(3);
+        transition: all 0.3s ease-in-out 0.2s;
+    }
+    32%{
+        opacity: 1;
+        color: darkgoldenrod;
+        top: 43%;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out 0.1s;
+    }
+    33.33%{
+        opacity:0;
+        color: darkorange;
+        top: -260px;
+        transform: scale(6);
+        transition: all 0.3s ease-in-out 0.2s;
+    }
+    65%{
+        opacity: 1;
+        color: darkorange;
+        top: 43%;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out 0.1s;
+    }
+    66.66%{
+        opacity:0;
+        color: red;
+        top: -290px;
+        transform: scale(9);
+        transition: all 0.3s ease-in-out 0.2s;
+    }
+    to{
+        opacity: 1;
+        color: red;
+        top: 43%;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out 0.1s;
+    }
 }

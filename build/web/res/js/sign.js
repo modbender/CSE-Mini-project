@@ -20,7 +20,7 @@ function valcheck(ele) {
         pass.val() !== cpass.val() ? cpass.get(0).setCustomValidity("Passwords Don't Match") : cpass.get(0).setCustomValidity('');
     }
     var id = ele.getAttribute('id');
-    if ($("#"+id).is(":invalid") === true) {
+    if ($("#" + id).is(":invalid") === true) {
         formError(true);
     } else {
         formError(false);
@@ -75,15 +75,9 @@ $(document).ready(function () {
         });
     }
 });
+$("#lemail").on("keyup", function () {
+    console.log(this.value);
+});
+$("#email").on("keyup", function () {
 
-function ncheck() {
-    for (var c in mails) {
-        if (mails[c] === em.val()) {
-            em.get(0).setCustomValidity('Email already used');
-            formError(true);
-        } else {
-            em.get(0).setCustomValidity('');
-            formError(false);
-        }
-    }
-}
+});

@@ -37,14 +37,12 @@ public class Register extends HttpServlet {
             dob = request.getParameter("dob");
             phno = request.getParameter("phno");
             pass = request.getParameter("pass");
-            if("".equals(dob)){
-                dob="NULL";
-            }
+            dob = ("".equals(dob)) ? "null" : "'"+dob+"'";
             if("".equals(phno)){
-                phno="NULL";
+                phno="null";
             }
             cols = "utype,uname,uemail,udob,uphno,udate,upass";
-            vals = "'"+type+"','"+name+"','"+email+"','"+dob+"',"+phno+",'"+dForm.format(tday)+"','"+pass+"'";
+            vals = "'"+type+"','"+name+"','"+email+"',"+dob+","+phno+",'"+dForm.format(tday)+"','"+pass+"'";
             String q = "insert into users("+cols+") values("+vals+")";
             System.out.println(q);
             check = st.executeUpdate(q) > 0;
