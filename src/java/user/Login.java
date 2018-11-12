@@ -23,9 +23,9 @@ public class Login extends HttpServlet {
 
     public void processRequest(HttpServletRequest request, HttpServletResponse response) {
         try{
-            String type = request.getParameter("type");
-            String uname = request.getParameter("lemail");
-            String pass = request.getParameter("lpass");
+            String type = request.getParameter("type").trim();
+            String uname = request.getParameter("lemail").trim();
+            String pass = request.getParameter("lpass").trim();
             dbconn.Connect.main(null);
             ResultSet rs = st.executeQuery("select uid,utype,uemail,upass from users where utype='"+type+"' and uemail='"+uname+"' and upass='"+pass+"';");
             if(rs.next()){

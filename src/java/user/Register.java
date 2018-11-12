@@ -31,12 +31,12 @@ public class Register extends HttpServlet {
             SimpleDateFormat dForm = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date tday = new Date(); 
             String type, name, email, dob, phno, pass, cols = "", vals = "";
-            type = request.getParameter("type");
-            name = request.getParameter("fname");
-            email = request.getParameter("email");
-            dob = request.getParameter("dob");
-            phno = request.getParameter("phno");
-            pass = request.getParameter("pass");
+            type = request.getParameter("type").trim();
+            name = request.getParameter("fname").trim();
+            email = request.getParameter("email").trim();
+            dob = request.getParameter("dob").trim();
+            phno = request.getParameter("phno").trim();
+            pass = request.getParameter("pass").trim();
             dob = ("".equals(dob)) ? "null" : "'"+dob+"'";
             if("".equals(phno)){
                 phno="null";

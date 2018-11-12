@@ -15,10 +15,12 @@
         <title>Result</title>
     </head>
     <body>
-        
         <% if(request.getParameter("timeout")!=null){ %>
         <h1>Your time ran out! Better luck next time! <br>Redirecting....</h1>
-        <% } %>
+        <% } else { %>
         
+        
+        
+        <% } %>
     </body>
 </html>

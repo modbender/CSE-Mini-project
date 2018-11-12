@@ -30,16 +30,16 @@ public class AddQ extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String q = request.getParameter("q");
-        String a = request.getParameter("a");
-        String b = request.getParameter("b");
-        String c = request.getParameter("c");
-        String d = request.getParameter("d");
+        String q = request.getParameter("q").trim();
+        String a = request.getParameter("a").trim();
+        String b = request.getParameter("b").trim();
+        String c = request.getParameter("c").trim();
+        String d = request.getParameter("d").trim();
         String ans = request.getParameter("answerRadios");
         String opt = "{'0':'" + a + "','1':'" + b + "','2':'" + c + "','3':'" + d + "'}";
         try {
             dbconn.Connect.main(null);
-            st.executeUpdate("insert into qs(q,options,answer) values('"+q+"','"+opt+"','"+ans+"');");
+            st.executeUpdate("insert into qs(q,options,answer) values('"+q+"',\""+opt+"\",'"+ans+"');");
             request.setAttribute("addmsg", "Added Question Successfully");
             request.getRequestDispatcher("/admin").forward(request, response);
         }catch(Exception e){

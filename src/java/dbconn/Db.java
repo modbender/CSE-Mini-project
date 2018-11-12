@@ -29,7 +29,7 @@ public class Db {
             String qs = "create table if not exists qs(qid int(10) unsigned  PRIMARY KEY AUTO_INCREMENT,q varchar(500) UNIQUE NOT NULL,options varchar(3000) NOT NULL,answer int(1)) AUTO_INCREMENT=1;";
             String feeds = "create table if not exists feeds(fid int(10) unsigned  PRIMARY KEY AUTO_INCREMENT,uid int(10) unsigned NOT NULL,qid int(10) unsigned NOT NULL,feed varchar(10) NOT NULL,foreign key (uid) references users(uid) on delete cascade,foreign key (qid) references qs(qid) on delete cascade) AUTO_INCREMENT=1;";
             String winners = "create table if not exists results(rid int(10) unsigned PRIMARY KEY AUTO_INCREMENT,uid int(10) unsigned NOT NULL,correct int(5) NOT NULL,wrong int(5) NOT NULL,percentage float NOT NULL,foreign key (uid) references users(uid) on delete cascade) AUTO_INCREMENT=1;";
-            
+
             String trigger = "create trigger add_perc before insert on results for each row set new.percentage= ROUND((new.correct/15)*100,2)";
             String storedProc = "create function ";
             if (found == true) {
