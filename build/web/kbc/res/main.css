@@ -151,6 +151,7 @@ body{
     left: 0;
     right: 0;
     width: 100vw;
+    min-height: 880px;
     height: 100vh;
     border-radius: 0px;
 }
@@ -159,6 +160,7 @@ body{
     flex-flow: column nowrap;
     width: 100vw;
     height: 100vh;
+    min-height: 880px;
     align-items: center;
     justify-content: space-evenly;
 }

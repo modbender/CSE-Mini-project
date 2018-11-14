@@ -12,7 +12,7 @@
             <li class="nav-tab"> <a class="nav-link player-btn" id="volume-btn" href="javascript:void(0);"><i id="volume" class="fas fa-volume-mute"></i></a>
             <li class="nav-tab"> <a class="nav-link <% if (uri.equals("")) { %>active<% } %>" href="/CS121/"> <i class="fas fa-home"></i> Home</a> </li>
                 <% if (session.getAttribute("name") != null && session.getAttribute("type").equals("admin")) { %>
-            <li class="nav-tab"> <a class="nav-link <% if (uri.contains("login")) { %>active<% } %>" href="/CS121/user/login"> <i class="fas fa-bolt"></i> Admin</a> </li>
+            <li class="nav-tab"> <a class="nav-link <% if (uri.contains("admin")) { %>active<% } %>" href="/CS121/admin"> <i class="fas fa-bolt"></i> Admin</a> </li>
                 <% } %>
                 <% if (session.getAttribute("name") == null) { %>
             <li class="nav-tab"> <a class="nav-link <% if (uri.contains("login")) { %>active<% } %>" href="/CS121/user/login"> <i class="fas fa-sign-in-alt"></i> Login</a> </li>

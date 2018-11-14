@@ -22,7 +22,7 @@ public class Connect {
     public static void main(String[] args) {
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            String mysqldb = "jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false";
+            String mysqldb = "jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true";
             String mysqlun = "root";
             String mysqlp = "system";
             con = (Connection) DriverManager.getConnection(mysqldb, mysqlun, mysqlp);

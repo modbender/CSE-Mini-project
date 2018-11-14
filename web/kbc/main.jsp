@@ -206,6 +206,7 @@
             const setQuestions = () => {
 //                history.pushState({curQ},"",location.href+"/"+(curQ+1));
                 if(curQ!==0){resetData();}
+                if(q[0]===undefined){foEffect(false);console.log("No questions in DB!")}
                 setTimeout(function () {
                     qelem.innerHTML = q[curQ];
                 }, curQ===0 ? 300 : 900);
