@@ -93,16 +93,6 @@
                     </div>
 
                     <div class="s-group">
-                        <label for="dob">Date of Birth :</label>
-                        <input id="dob" type="date" name="dob" autocomplete="off"/>
-                    </div>
-
-                    <div class="s-group">
-                        <label for="phno">Phone Number :</label>
-                        <input id="phno" type="tel" name="phno" autocomplete="off" readonly/>
-                    </div>
-
-                    <div class="s-group">
                         <label for="pass">Password : <span class="input-red" title="Required Field">*</span></label>
                         <input id="pass" type="password" placeholder="Used for login" name="pass" autocomplete="off" readonly required/>
                     </div>

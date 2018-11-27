@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 @import url('/CS121/res/fonts/Ubuntu-Regular.ttf');
 @import url('/CS121/res/fonts/Montserrat-ExtraBold.ttf');
+
 div{
     box-sizing: border-box;
 }

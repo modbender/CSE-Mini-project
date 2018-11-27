@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$(".container .bg").addClass("full");
 var sub = $("#submit"),pop = $('.pop');
 const setSubmit = (dis) => {
     sub.get(0).disabled = dis;

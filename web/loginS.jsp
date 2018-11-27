@@ -12,7 +12,7 @@
 %>
 <html>
     <head>
-        <meta http-equiv="refresh" content="6; url=/CS121/" />
+        <meta http-equiv="refresh" content="3; url=/CS121/" />
         <title><%=type%> <%=rep%></title>
         <style>
             body{

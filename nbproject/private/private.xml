@@ -3,23 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/layout/header.jsp</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/dbconn/Db.java</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/kbc/res/main.js</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/user/addQ.jsp</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/kbc/res/main.css</file>
+            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/res/css/basic.css</file>
+            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/def/KbcResults.java</file>
+            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/kbc/start.jsp</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/kbc/result.jsp</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/res/css/sign.css</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/index.jsp</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/dbconn/Reset.java</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/kbc/res/timer.js</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/user/Feeds.java</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/def/Kbc.java</file>
+            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/login.jsp</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/user/frame.jsp</file>
+            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/def/Quit.java</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/kbc/main.jsp</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/loginS.jsp</file>
             <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/web/user/dash.jsp</file>
-            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/def/Misc.java</file>
+            <file>file:/C:/Users/Yashas%20Hr/Documents/NetBeansProjects/CS121/src/java/user/Register.java</file>
         </group>
     </open-files>
 </project-private>

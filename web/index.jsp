@@ -33,7 +33,7 @@
                             <h1 class="panel-title font-mont">Kaun Banega Crorepati</h1>
                         </div>
                         <div class="panel-item font-mont start">
-                            <a class="btn-white-green" href="kbc/main"> START KBC 
+                            <a class="btn-white-green" href="kbc/start"> START KBC 
                                 <i id="btn-start" class="fas fa-play"></i> 
                             </a>
                         </div>

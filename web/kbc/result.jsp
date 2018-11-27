@@ -8,19 +8,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <% if(request.getParameter("timeout")!=null){ %>
-        <meta http-equiv="refresh" content="6; url=/CS121/" />
-        <% } %>
+        <jsp:include page="/khead"/>
         <title>Result</title>
     </head>
     <body>
-        <% if(request.getParameter("timeout")!=null){ %>
-        <h1>Your time ran out! Better luck next time! <br>Redirecting....</h1>
-        <% } else { %>
-        
-        
-        
-        <% } %>
+        <div class="container">
+            <div class="bg"></div>
+            <div class="content">
+                <%
+                    String quit = request.getParameter("quit");
+                    if (quit != null) {
+                    
+                    } else {
+                    String win = request.getParameter("win");
+                    if (win != null) {
+
+                %>
+                <h1>Congrats on Winning!</h1>
+                <% } %>
+                <h1></h1>
+                <% }
+                    %>
+            </div>
+        </div>
+        <script src="/CS121/kbc/res/main.js"></script>
     </body>
 </html>

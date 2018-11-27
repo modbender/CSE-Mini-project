@@ -10,11 +10,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="/khead"/>
         <title>KBC Quiz</title>
         <script>
-            var qid = [], q = [], options = [], pause = false,chosen;
+            var qid = [], q = [], options = [], pause = false, chosen;
             <%
                 int i = 0;
 //                int[] qids = new int[15];
@@ -26,7 +25,7 @@
             %>
             qid[<%=i%>] = parseInt(<%=rs.getString(1)%>);
             q[<%=i%>] = "<%=rs.getString(2)%>";
-            options[<%=i%>] = eval("(<%=rs.getString(3)%>)");
+            options[<%=i%>] = eval(`(<%=rs.getString(3)%>)`);
             <%
                         i++;
                     }
@@ -35,21 +34,34 @@
                 }
             %>
             var curQ = 0;
-            console.log(q);
+            document.title = "Q." + (curQ + 1) + "| KBC Quiz";
+            const quit = () => {
+                $.post("/CS121/kbc/quit", {
+
+                }, function (data, status) {
+                    if (status === "success") {
+                        foEffect(true);
+                    }
+                }).fail(function () {
+                    foEffect(false);
+                });
+            };
             $(document).ready(function () {
 //                Disable F5 or refresh
-//                window.onbeforeunload = function () {
-//                    if (true) {
-//                        return "Reloading will make you lose your progress!";
-//                    }
-//                };
-//                window.onblur = function() {
-//                    if(true){
-//                        alert("Closing tab will erase your progress");
-//                    }
-//                };
+                window.onbeforeunload = function () {
+                    if (true) {
+                      return "Reloading will make you lose your progress!";
+                    }
+                    if(curQ <= 15) {
+                      
+                    }
+                };
+                window.onblur = function() {
+                    if(true){
+                        alert("Closing tab will erase your progress");
+                    }
+                };
                 var optc = ["q-opt select", "q-opt lock", "q-opt"];
-                $(".container .bg").addClass("full");
                 setTimeout(function () {
                     $(".q").addClass("open");
                 }, 1000);
@@ -87,11 +99,14 @@
                                 foEffect(true);
                                 setSubmit(true);
                                 curQ++;
+                                document.title = "Q." + (curQ + 1) + "| KBC Quiz";
                                 setQuestions();
-                            } else {
+                            } else if (status !== "success") {
                                 foEffect(false);
                             }
-                        });
+                        }).fail(function () {
+                    foEffect(false);
+                });
             };
         </script>
     </head>
@@ -103,7 +118,6 @@
             <div class="content">
 
                 <div class="top-bar">
-
                 </div>
 
                 <div class="q-box">
@@ -184,32 +198,40 @@
             ];
             const resetData = () => {
                 qelem.innerHTML = "";
-                for(j in optelem){
+                for (j in optelem) {
                     optelem[j].innerHTML = "";
                 }
                 $(".q-opt.lock").find("#lock").removeClass("fa-lock");
                 $(".q-opt.lock").removeClass("lock");
             };
             const setOptions = (i) => {
+                if (i === 4) {
+                    setTimeout(function () {
+                        startT();
+                    }, 300);
+                }
                 if (i < 4) {
                     setTimeout(function () {
                         optelem[i].innerHTML = options[curQ][i];
                         setOptions(i + 1);
-                    }, i === 0 ? 2500 : 500);
-                }
-                if (i === 4) {
-                    setTimeout(function () {
-                        startT();
-                    }, 1000);
+                    }, 300);
                 }
             };
             const setQuestions = () => {
 //                history.pushState({curQ},"",location.href+"/"+(curQ+1));
-                if(curQ!==0){resetData();}
-                if(q[0]===undefined){foEffect(false);console.log("No questions in DB!")}
+                if (curQ === 16) {
+                    location.href="/CS121/kbc/results";
+                }
+                if (curQ !== 0) {
+                    resetData();
+                }
+                if (q[0] === undefined) {
+                    foEffect(false);
+                    alert("No questions in DB!");
+                }
                 setTimeout(function () {
                     qelem.innerHTML = q[curQ];
-                }, curQ===0 ? 300 : 900);
+                }, curQ === 0 ? 1500 : 900);
                 setOptions(0);
             };
             setTimeout(function () {

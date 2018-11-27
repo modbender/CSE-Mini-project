@@ -38,7 +38,7 @@
     </servlet>
     <servlet>
         <servlet-name>feeds</servlet-name>
-        <servlet-class>user.Feeds</servlet-class>
+        <servlet-class>def.Feeds</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login Result</servlet-name>
@@ -87,6 +87,14 @@
     <servlet>
         <servlet-name>Logout</servlet-name>
         <jsp-file>/user/logout.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>KBC Start</servlet-name>
+        <jsp-file>/kbc/start.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Quit</servlet-name>
+        <servlet-class>def.Quit</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login_process</servlet-name>
@@ -183,6 +191,14 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KBC Start</servlet-name>
+        <url-pattern>/kbc/start</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Quit</servlet-name>
+        <url-pattern>/kbc/quit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

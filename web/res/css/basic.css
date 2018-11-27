@@ -11,6 +11,14 @@ and open the template in the editor.
 /*Basic Theme*/
 @import url('/CS121/res/fonts/Ubuntu-Regular.ttf');
 @import url('/CS121/res/fonts/Montserrat-ExtraBold.ttf');
+*{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none
+}
 html{
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -321,8 +329,8 @@ input[type='text'],input[type='password'],input[type='email'],input[type='tel']{
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 
 /*HEADER NAVBAR*/

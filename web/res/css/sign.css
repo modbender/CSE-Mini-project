@@ -42,9 +42,7 @@ video{
     background-color: rgba(0,0,0,0.6);
     box-shadow: 0px 0px 30px 11px rgba(52, 200, 0, 0.3);
     transition: box-shadow .3s;
-    max-height: 658px;
-    height: 500px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .form-container.error{
     box-shadow: 0px 0px 30px 13px rgba(200,0,0,0.7);

@@ -5,23 +5,19 @@
  */
 package def;
 
-import static dbconn.Connect.con;
 import static dbconn.Connect.st;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Yashas Hr
  */
-public class KbcResults extends HttpServlet {
+public class Feeds extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,29 +30,21 @@ public class KbcResults extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try{
+        String uid = request.getParameter("uid");
+        String qid = request.getParameter("qid");
+        String feed = request.getParameter("feed");
+        boolean err = false;
+        try {
             dbconn.Connect.main(null);
-            HttpSession sess = request.getSession(false);
-            String uid = sess.getAttribute("uid").toString();
-            ResultSet rs = st.executeQuery("select count(*) from qs q,feeds f where f.qid=q.qid and f.uid='"+uid+"' and q.answer = f.feed");
-            if(rs.next()){
-                int correct = Integer.parseInt(rs.getString(1));
-                if(correct == 15){
-                    CallableStatement cs = con.prepareCall("{call addWin(?)}");
-                    cs.setString(1, uid);
-                    response.sendRedirect("result.jsp?win=true");
-                }else{
-                    st.executeUpdate("insert into results(uid,correct,wrong) values("+uid+","+correct+","+(15-correct)+")");
-                }
-            }else{
-                System.out.println("Error at KBCResults\nError : Count error");
-            }
-            
-        }catch(Exception e){
-            System.out.println("Error at KBCResults\nError : "+e);
+            st.executeUpdate("insert into feeds(uid,qid,feed) values("+uid+","+qid+","+feed+");");
+        } catch (Exception e) {
+            err = true;
+            System.out.println("Error at Feeds.java\nError: " + e);
         }
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.println(err == false ? "success" : "fail");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
