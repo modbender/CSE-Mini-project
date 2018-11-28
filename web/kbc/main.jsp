@@ -13,7 +13,7 @@
         <jsp:include page="/khead"/>
         <title>KBC Quiz</title>
         <script>
-            var qid = [], q = [], options = [], pause = false, chosen;
+            var qid = [], q = [], options = [], pause = false, chosen,blur = false;;
             <%
                 int i = 0;
 //                int[] qids = new int[15];
@@ -50,15 +50,10 @@
 //                Disable F5 or refresh
                 window.onbeforeunload = function () {
                     if (true) {
-                      return "Reloading will make you lose your progress!";
+                        return "Reloading will make you lose your progress!";
                     }
-                    if(curQ <= 15) {
-                      
-                    }
-                };
-                window.onblur = function() {
-                    if(true){
-                        alert("Closing tab will erase your progress");
+                    if (curQ <= 15) {
+
                     }
                 };
                 var optc = ["q-opt select", "q-opt lock", "q-opt"];
@@ -96,11 +91,14 @@
                         },
                         function (data, status) {
                             if (status === "success") {
-                                foEffect(true);
+                                if (data === "success") {
+                                    foEffect(true);
                                 setSubmit(true);
                                 curQ++;
                                 document.title = "Q." + (curQ + 1) + "| KBC Quiz";
                                 setQuestions();
+                                }else
+                                    foEffect(false);
                             } else if (status !== "success") {
                                 foEffect(false);
                             }
@@ -220,7 +218,7 @@
             const setQuestions = () => {
 //                history.pushState({curQ},"",location.href+"/"+(curQ+1));
                 if (curQ === 16) {
-                    location.href="/CS121/kbc/results";
+                    location.href = "/CS121/kbc/results";
                 }
                 if (curQ !== 0) {
                     resetData();
@@ -236,7 +234,7 @@
             };
             setTimeout(function () {
                 setQuestions();
-            }, 2000);
+            }, 500);
         </script>
         <div class="pop">
             <i id="pop-v" class="fas fa-2x fa-check-circle"></i>

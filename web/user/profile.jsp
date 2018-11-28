@@ -3,15 +3,13 @@
 <%
     session = request.getSession(false);
     if (session.getAttribute("name") != null) {
-        String name, type, email, dob, phno, date;
+        String name, type, email, dob = null, phno = null, date;
         dbconn.Connect.main(null);
         ResultSet rs = st.executeQuery("select * from users where uid=" + session.getAttribute("uid") + ";");
         if (rs.next()) {
             name = rs.getString("uname");
             type = rs.getString("utype");
             email = rs.getString("uemail");
-            dob = rs.getString("udob");
-            phno = rs.getString("uphno");
             date = rs.getString("udate");
 
 %>

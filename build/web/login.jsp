@@ -76,7 +76,7 @@
                     %>
                     });
                 </script>
-                <form id="regForm" name="register" class="form" action="/CS121/register_go" method="get" style="z-index: 50">
+                <form id="regForm" name="register" class="form" action="/CS121/register_go" method="post" style="z-index: 50">
 
                     <h2 class="form-title"> Sign Up </h2>
 

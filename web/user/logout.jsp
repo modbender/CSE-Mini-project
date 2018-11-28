@@ -23,7 +23,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="ahead.jsp"/>
+        <jsp:include page="/ahead"/>
         <title>Logout</title>
     </head>
     <body>

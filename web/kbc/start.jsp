@@ -62,7 +62,11 @@
                     ResultSet rs = st.executeQuery("select count(*) from qs;");
                     if (session.getAttribute("name") != null) {
                         dbconn.Connect.main(null);
-                        ResultSet rs1 = st.executeQuery("select count(*) feeds where uid=" + session.getAttribute("uid") + ";");
+                        try{
+                            ResultSet rs1 = st.executeQuery("select count(*) feeds where uid=" + session.getAttribute("uid") + ";");
+                        }catch(Exception e){
+                            System.out.println(e);
+                        }
                         if (rs.next()) {
                             int n = Integer.parseInt(rs.getString(1));
                             if (n > 0) {
@@ -70,7 +74,7 @@
                 <div>
                     <script>
                         $(document).ready(function () {
-                            var time = 30;
+                            var time = 10;
                             const cont = `START 
                             <i id="btn-start" class="fas fa-play"></i>`,
                                     sbtn = document.getElementById("start-btn"),
@@ -115,7 +119,7 @@
                         </li>
                     </ol>
                     <div class="start">
-                        <a class="btn-white" id="start-btn" href="javascript:void(0)"> 30
+                        <a class="btn-white" id="start-btn" href="javascript:void(0)"> 10
                         </a>
                     </div>
                 </div>

@@ -34,15 +34,9 @@ public class Register extends HttpServlet {
             type = request.getParameter("type").trim();
             name = request.getParameter("fname").trim();
             email = request.getParameter("email").trim();
-            dob = request.getParameter("dob").trim();
-            phno = request.getParameter("phno").trim();
             pass = request.getParameter("pass").trim();
-            dob = ("".equals(dob)) ? "null" : "'"+dob+"'";
-            if("".equals(phno)){
-                phno="null";
-            }
-            cols = "utype,uname,uemail,udob,uphno,udate,upass";
-            vals = "'"+type+"','"+name+"','"+email+"',"+dob+","+phno+",'"+dForm.format(tday)+"','"+pass+"'";
+            cols = "utype,uname,uemail,udate,upass";
+            vals = "'"+type+"','"+name+"','"+email+"','"+dForm.format(tday)+"','"+pass+"'";
             String q = "insert into users("+cols+") values("+vals+")";
             System.out.println(q);
             check = st.executeUpdate(q) > 0;

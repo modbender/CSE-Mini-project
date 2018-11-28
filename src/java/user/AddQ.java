@@ -40,9 +40,9 @@ public class AddQ extends HttpServlet {
         try {
             dbconn.Connect.main(null);
             st.executeUpdate("insert into qs(q,options,answer) values('"+q+"',\""+opt+"\",'"+ans+"');");
-            response.sendRedirect("/CS121/admin#v-pills-add?addmsg=Added Question Successfully");
+            response.sendRedirect("/CS121/admin?addmsg=Added Question Successfully");
         }catch(Exception e){
-            response.sendRedirect("/CS121/admin#v-pills-add?adderror=Error in adding question. Check console.");
+            response.sendRedirect("/CS121/admin?adderror=Error in adding question. Check console.");
             System.out.println("Error at AddQ.java\nError: "+e);
         }
     }
