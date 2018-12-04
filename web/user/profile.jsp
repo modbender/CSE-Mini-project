@@ -1,4 +1,5 @@
 <%@page import="java.util.Date"%>
+<%@page import="static dbconn.Connect.con"%>
 <%@page import="def.Misc,java.sql.ResultSet,static dbconn.Connect.st"%>
 <%
     session = request.getSession(false);
@@ -49,4 +50,6 @@
 <% } %>
 <% } else { %>
 Not Logged in!
-<% }%>
+<% }
+con.close();
+%>

@@ -5,9 +5,9 @@
  */
 package dbconn;
 
+import static dbconn.Connect.con;
 import static dbconn.Connect.st;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,11 +35,12 @@ public class Reset extends HttpServlet {
             Connect.main(null);
             st.executeUpdate("drop database online_quiz121;");
             Connect.main(null);
+            con.close();
         }catch(Exception e){
             System.out.println("Error at Reset.java\nError: "+e);
         }
         request.setAttribute("html", false);
-        request.getRequestDispatcher("logout.jsp").forward(request, response);
+        request.getRequestDispatcher("/logout").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

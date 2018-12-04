@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 public class Connect {
 
-    public static Connection con;
+    public static Connection con = null;
     public static Statement st = null;
 
     public static void main(String[] args) {
@@ -28,13 +28,10 @@ public class Connect {
             con = (Connection) DriverManager.getConnection(mysqldb, mysqlun, mysqlp);
             st = (Statement) con.createStatement();
             con.setAutoCommit(true);
-            System.out.println("MYSQL Connection success");
             try{
                 Db.main(null);
-                System.out.println("No error in creating DB");
-            }catch(Exception e){
-                System.out.println("Error in creating DB\nError : "+e);
-            }
+            }catch(Exception e){ }
+            System.out.println("MYSQL Connection success");
         } catch (Exception e) {
             System.out.println(e.getMessage() + "\nLocalError: " + e.getLocalizedMessage() + "\nCause: " + e.getCause() + "\nClause: " + Arrays.toString(e.getStackTrace()));
         }

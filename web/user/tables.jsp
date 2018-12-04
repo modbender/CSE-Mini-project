@@ -1,3 +1,4 @@
+<%@page import="static dbconn.Connect.con"%>
 <%@page import="def.Misc"%>
 <script src="<%=Misc.res("jquery.dataTables.min.js")%>"></script>
 <script src="<%=Misc.res("dataTables.bootstrap4.min.js")%>"></script>
@@ -50,8 +51,6 @@
                             <th>Type</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>D.O.B</th>
-                            <th>Ph. No.</th>
                             <th>Created Date</th>
                         </tr>
                     </thead>
@@ -61,7 +60,7 @@
                                 rs1.next();
                         %>
                         <tr>
-                            <% for (int j = 2; j < 8; j++) {%>
+                            <% for (int j = 2; j < 6; j++) {%>
                             <td>
                                 <%=rs1.getString(j) != null ? rs1.getString(j) : "-"%>
                             </td>
@@ -74,8 +73,6 @@
                             <th>Type</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>D.O.B</th>
-                            <th>Ph. No.</th>
                             <th>Created Date</th>
                         </tr>
                     </tfoot>
@@ -276,4 +273,6 @@
 
 <% } else { %>
 Not Logged in!
-<% }%>
+<% }
+    con.close();
+%>

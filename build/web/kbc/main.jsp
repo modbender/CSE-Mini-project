@@ -13,7 +13,8 @@
         <jsp:include page="/khead"/>
         <title>KBC Quiz</title>
         <script>
-            var qid = [], q = [], options = [], pause = false, chosen,blur = false;;
+            var qid = [], q = [], options = [], pause = false, chosen, blur = false;
+            ;
             <%
                 int i = 0;
 //                int[] qids = new int[15];
@@ -48,14 +49,24 @@
             };
             $(document).ready(function () {
 //                Disable F5 or refresh
-                window.onbeforeunload = function () {
+                function loadWarn() {
                     if (true) {
-                        return "Reloading will make you lose your progress!";
+                        alert("Reloading/Closing will make you lose your progress!");
                     }
-                    if (curQ <= 15) {
-
-                    }
-                };
+                    $.post("/CS121/kbc/quit",
+                            {
+                                type: "force"
+                            },
+                            function (data, status) {
+                                if (status === "success") {
+                                    console.log("Deleted Successfully");
+                                }
+                            }).fail(function () {
+                        console.log("Failed to quit!");
+                        foEffect(false);
+                    });
+                }
+                window.onbeforeunload = loadWarn();
                 var optc = ["q-opt select", "q-opt lock", "q-opt"];
                 setTimeout(function () {
                     $(".q").addClass("open");
@@ -83,6 +94,7 @@
                 };
             });
             const getData = () => {
+                console.log("getData() Running");
                 $.post("/CS121/kbc/feed",
                         {
                             uid: "<%= session.getAttribute("uid")%>",
@@ -90,19 +102,20 @@
                             feed: chosen
                         },
                         function (data, status) {
-                            if (status === "success") {
-                                if (data === "success") {
-                                    foEffect(true);
+                            if (status == "success") {
+                                console.log(status, data);
+                                console.log("Succesfully sent Q." + (curQ + 1));
+                                foEffect(true);
                                 setSubmit(true);
                                 curQ++;
                                 document.title = "Q." + (curQ + 1) + "| KBC Quiz";
                                 setQuestions();
-                                }else
-                                    foEffect(false);
-                            } else if (status !== "success") {
+                            } else {
                                 foEffect(false);
+                                alert("Java Error, check NetBeans GlassFish Server Log!");
                             }
                         }).fail(function () {
+                    console.log("Failed to send data!");
                     foEffect(false);
                 });
             };
@@ -212,12 +225,12 @@
                     setTimeout(function () {
                         optelem[i].innerHTML = options[curQ][i];
                         setOptions(i + 1);
-                    }, 300);
+                    }, curQ === 0 ? 1500 : 300);
                 }
             };
             const setQuestions = () => {
 //                history.pushState({curQ},"",location.href+"/"+(curQ+1));
-                if (curQ === 16) {
+                if (curQ === 15) {
                     location.href = "/CS121/kbc/results";
                 }
                 if (curQ !== 0) {
@@ -228,8 +241,8 @@
                     alert("No questions in DB!");
                 }
                 setTimeout(function () {
-                    qelem.innerHTML = q[curQ];
-                }, curQ === 0 ? 1500 : 900);
+                    qelem.innerHTML = "<b>"+(curQ+1)+".</b> "+q[curQ];
+                }, curQ === 0 ? 1500 : 200);
                 setOptions(0);
             };
             setTimeout(function () {

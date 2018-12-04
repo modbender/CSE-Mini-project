@@ -16,8 +16,7 @@
         <jsp:include page="/aheader"/>
         <%
             session = request.getSession(false);
-            //session.getAttribute("name") != null && session.getAttribute("type").equals("admin")
-            if (true) {
+            if (session.getAttribute("name") != null && session.getAttribute("type").equals("admin")) {
         %>
 
         <div class="m-3">

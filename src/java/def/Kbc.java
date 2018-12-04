@@ -6,6 +6,7 @@
 package def;
 
 import static dbconn.Connect.st;
+import static dbconn.Connect.con;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;

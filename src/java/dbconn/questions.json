@@ -1,0 +1,304 @@
+{
+    "results": [
+        {
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In the movie 'The Iron Giant' this character is the protagonist.",
+            "correct_answer": "Hogarth Hughes",
+            "incorrect_answers": [
+                "Kent Mansley",
+                "Dean McCoppin",
+                "Annie Hughes"
+            ]
+        },
+        {
+            "category": "Science & Nature",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "What name is given to all baby marsupials?",
+            "correct_answer": "Joey",
+            "incorrect_answers": [
+                "Calf",
+                "Pup",
+                "Cub"
+            ]
+        },
+        {
+            "category": "Entertainment: Music",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "What is the best selling album of all time from 1976 to 2018?",
+            "correct_answer": "Thriller",
+            "incorrect_answers": [
+                "Back in Black",
+                "Abbey Road",
+                "The Dark Side of the Moon"
+            ]
+        },
+        {
+            "category": "Entertainment: Music",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In which city did American rap producer DJ Khaled originate from?",
+            "correct_answer": "Miami",
+            "incorrect_answers": [
+                "New York",
+                "Detroit",
+                "Atlanta"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "How many colors are there in a rainbow?",
+            "correct_answer": "7",
+            "incorrect_answers": [
+                "8",
+                "9",
+                "10"
+            ]
+        },
+        {
+            "category": "Entertainment: Musicals & Theatres",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In which Shakespearean play will you find the suicide of Ophelia?",
+            "correct_answer": "Hamlet",
+            "incorrect_answers": [
+                "Macbeth",
+                "Othello",
+                "King Lear"
+            ]
+        },
+        {
+            "category": "Mythology",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "In Greek Mythology, who was the daughter of King Minos?",
+            "correct_answer": "Ariadne",
+            "incorrect_answers": [
+                "Athena",
+                "Ariel",
+                "Alana"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In 'Call Of Duty: Zombies', completing which map's main easter egg will reward you with the achievement, 'Little Lost Girl'?",
+            "correct_answer": "Origins",
+            "incorrect_answers": [
+                "Revelations",
+                "Moon",
+                "Tranzit"
+            ]
+        },
+        {
+            "category": "History",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In which year did the First World War begin?",
+            "correct_answer": "1914",
+            "incorrect_answers": [
+                "1930",
+                "1917",
+                "1939"
+            ]
+        },
+        {
+            "category": "Entertainment: Music",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Which one of these Pink Floyd albums were also a movie?",
+            "correct_answer": "The Wall",
+            "incorrect_answers": [
+                "The Dark Side of the Moon",
+                "Wish You Were Here",
+                "Animals"
+            ]
+        },
+        {
+            "category": "Vehicles",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "What do the 4 Rings in Audi's Logo represent?",
+            "correct_answer": "Previously independent automobile manufacturers",
+            "incorrect_answers": [
+                "States in which Audi makes the most sales",
+                "Main cities vital to Audi",
+                "Countries in which Audi makes the most sales"
+            ]
+        },
+        {
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "In Ms. Kobayashi's Dragon Maid, who is Kobayashi's maid?",
+            "correct_answer": "Tohru",
+            "incorrect_answers": [
+                "Lucoa",
+                "Kanna",
+                "Elma"
+            ]
+        },
+        {
+            "category": "History",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Which WWII tank ace is credited with having destroyed the most tanks?",
+            "correct_answer": "Kurt Knispel",
+            "incorrect_answers": [
+                "Michael Wittmann",
+                "Walter Kniep",
+                "Otto Carius"
+            ]
+        },
+        {
+            "category": "Geography",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "What is the official language of Bhutan?",
+            "correct_answer": "Dzongkha",
+            "incorrect_answers": [
+                "Ladakhi",
+                "Karen",
+                "Groma"
+            ]
+        },
+        {
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "This trope refers to minor characters that are killed off to show how a monster works.",
+            "correct_answer": "Red Shirt",
+            "incorrect_answers": [
+                "Minions",
+                "Expendables",
+                "Cannon Fodder"
+            ]
+        },
+        {
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Who played the Cenobite called 'Pinhead' in the original Hellraiser films?",
+            "correct_answer": "Doug Bradley",
+            "incorrect_answers": [
+                "Doug Jones",
+                "Doug Savant",
+                "Doug Benson"
+            ]
+        },
+        {
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "At the end of the 2001 film 'Rat Race', whose concert do the contestants crash?",
+            "correct_answer": "Smash Mouth",
+            "incorrect_answers": [
+                "Bowling for Soup",
+                "Sum 41",
+                "Linkin Park"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "'Gimmick!' is a Japanese Famicom game that uses a sound chip expansion in the cartridge. What is it called?",
+            "correct_answer": "FME-7",
+            "incorrect_answers": [
+                "VRC7",
+                "VRC6",
+                "MMC5"
+            ]
+        },
+        {
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "In what city in the dystopia alternate future of Half-Life 2 do you first start in?",
+            "correct_answer": "City 17",
+            "incorrect_answers": [
+                "City 18",
+                "City 6",
+                "City 45"
+            ]
+        },
+        {
+            "category": "History",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "In which years did the Battle of Gallipoli take place?",
+            "correct_answer": "1915 - 1916",
+            "incorrect_answers": [
+                "1914 - 1918",
+                "1914 - 1915",
+                "1915 - 1918"
+            ]
+        },
+        {
+            "category": "Vehicles",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "What year did the Chevrolet LUV mini truck make its debut?",
+            "correct_answer": "1972",
+            "incorrect_answers": [
+                "1982",
+                "1975",
+                "1973"
+            ]
+        },
+        {
+            "category": "Art",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "Which of these is not an additional variation of the color purple?",
+            "correct_answer": "Kobicha",
+            "incorrect_answers": [
+                "Byzantium",
+                "Pomp and Power",
+                "Palatinate"
+            ]
+        },
+        {
+            "category": "Entertainment: Musicals & Theatres",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "After England, more Shakespeare plays are set in this present day country than in any other.",
+            "correct_answer": "Italy",
+            "incorrect_answers": [
+                "United States",
+                "Greece",
+                "France"
+            ]
+        },
+        {
+            "category": "Entertainment: Books",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "What's the second book in George R. R. Martin's & 'A Song of Ice and Fire' series?",
+            "correct_answer": "A Clash of Kings",
+            "incorrect_answers": [
+                "A Dance with Dragons",
+                "A Storm of Swords",
+                "A Feast for Crows"
+            ]
+        },
+        {
+            "category": "Entertainment: Books",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "In which classic novel is there a character named Homer Simpson?",
+            "correct_answer": "The Day of the Locust",
+            "incorrect_answers": [
+                "Catch-22",
+                "Of Mice and Men",
+                "A Separate Peace"
+            ]
+        }
+    ]
+}

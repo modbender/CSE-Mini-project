@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,7 +31,8 @@ public class Feeds extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String uid = request.getParameter("uid");
+        HttpSession session = request.getSession(false);
+        String uid = session.getAttribute("uid").toString();
         String qid = request.getParameter("qid");
         String feed = request.getParameter("feed");
         boolean err = false;

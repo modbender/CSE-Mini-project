@@ -35,7 +35,7 @@ public class Misc {
     public static List<String> umails() {
         List<String> mails = new ArrayList<>();
         try {
-            checkCon();
+            dbconn.Connect.main(null);
             ResultSet r = st.executeQuery("select uemail from users");
             while (r.next()) {
                 mails.add(r.getString(1));

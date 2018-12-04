@@ -22,16 +22,7 @@ import javax.servlet.http.HttpSession;
  * @author Yashas Hr
  */
 public class KbcResults extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -39,20 +30,22 @@ public class KbcResults extends HttpServlet {
             dbconn.Connect.main(null);
             HttpSession sess = request.getSession(false);
             String uid = sess.getAttribute("uid").toString();
-            ResultSet rs = st.executeQuery("select count(*) from qs q,feeds f where f.qid=q.qid and f.uid='"+uid+"' and q.answer = f.feed");
+            ResultSet rs = st.executeQuery("select count(*) from qs q,feeds f where f.qid=q.qid and f.uid="+uid+" and q.answer = f.feed");
             if(rs.next()){
                 int correct = Integer.parseInt(rs.getString(1));
                 if(correct == 15){
                     CallableStatement cs = con.prepareCall("{call addWin(?)}");
                     cs.setString(1, uid);
-                    response.sendRedirect("result.jsp?win=true");
+                    cs.execute();
+                    response.sendRedirect("/CS121/kbc/result?win=true");
                 }else{
                     st.executeUpdate("insert into results(uid,correct,wrong) values("+uid+","+correct+","+(15-correct)+")");
+                    response.sendRedirect("/CS121/kbc/result?correct="+correct);
                 }
             }else{
                 System.out.println("Error at KBCResults\nError : Count error");
             }
-            
+            con.close();
         }catch(Exception e){
             System.out.println("Error at KBCResults\nError : "+e);
         }

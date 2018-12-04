@@ -39,7 +39,7 @@ public class AddQ extends HttpServlet {
         String opt = "{'0':'" + a + "','1':'" + b + "','2':'" + c + "','3':'" + d + "'}";
         try {
             dbconn.Connect.main(null);
-            st.executeUpdate("insert into qs(q,options,answer) values('"+q+"',\""+opt+"\",'"+ans+"');");
+            st.executeUpdate("insert into qs(q,options,answer) values('"+q+"','"+opt+"','"+ans+"');");
             response.sendRedirect("/CS121/admin?addmsg=Added Question Successfully");
         }catch(Exception e){
             response.sendRedirect("/CS121/admin?adderror=Error in adding question. Check console.");

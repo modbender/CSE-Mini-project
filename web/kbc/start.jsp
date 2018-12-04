@@ -6,6 +6,7 @@
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="static dbconn.Connect.st"%>
+<%@page import="static dbconn.Connect.con"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -62,14 +63,14 @@
                     ResultSet rs = st.executeQuery("select count(*) from qs;");
                     if (session.getAttribute("name") != null) {
                         dbconn.Connect.main(null);
-                        try{
-                            ResultSet rs1 = st.executeQuery("select count(*) feeds where uid=" + session.getAttribute("uid") + ";");
-                        }catch(Exception e){
-                            System.out.println(e);
-                        }
+                        ResultSet rs1 = st.executeQuery("select count(*) from feeds where uid=" + session.getAttribute("uid") + ";");
                         if (rs.next()) {
-                            int n = Integer.parseInt(rs.getString(1));
+                            int n = rs.getInt(1);
+
                             if (n > 0) {
+                                rs1.next();
+                                int indb = rs1.getInt(1);
+                                if (indb == 0) {
                 %>
                 <div>
                     <script>
@@ -117,12 +118,23 @@
                         <li>
                             Upon submitting answer you will automatically be shown the next question and timer will be reset.
                         </li>
+                        <li>
+                            Upon Timeout or Quit you will lose your progress in the quiz.
+                        </li>
+                        <li>
+                            Once 15 questions are answered you will be sent to result page to review your results.
+                        </li>
                     </ol>
                     <div class="start">
                         <a class="btn-white" id="start-btn" href="javascript:void(0)"> 10
                         </a>
                     </div>
                 </div>
+                <% } else { %>
+                <div>
+                    You have already answered 15 questions.
+                </div>
+                <% } %>
                 <% } else { %>
                 <div>
                     <h2>Add Questions to start!</h2>
@@ -147,3 +159,4 @@
         <script src="/CS121/kbc/res/main.js"></script>
     </body>
 </html>
+<% con.close(); %>

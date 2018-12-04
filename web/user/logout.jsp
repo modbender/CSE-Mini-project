@@ -22,7 +22,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="refresh" content="5; url=/CS121/" />
         <jsp:include page="/ahead"/>
         <title>Logout</title>
     </head>

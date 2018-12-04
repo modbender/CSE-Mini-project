@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;  
 
 import static dbconn.Connect.st;
+import static dbconn.Connect.con;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -46,6 +47,7 @@ public class Register extends HttpServlet {
                 System.out.print(vals);
                 response.sendRedirect("loginS.jsp?type=Signup&signReport=Fail");
             }
+            con.close();
         }catch(SQLException ex){
             System.out.println("SQL ERROR : "+ ex);
         }catch(Exception e){

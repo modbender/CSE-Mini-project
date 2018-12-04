@@ -96,6 +96,10 @@
         <servlet-name>Quit</servlet-name>
         <servlet-class>def.Quit</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>KResult</servlet-name>
+        <jsp-file>/kbc/result.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>login_process</servlet-name>
         <url-pattern>/login_go</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>Quit</servlet-name>
         <url-pattern>/kbc/quit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KResult</servlet-name>
+        <url-pattern>/kbc/result</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

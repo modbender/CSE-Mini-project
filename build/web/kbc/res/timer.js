@@ -33,5 +33,5 @@ const startT = () => {
     });
 };
 const prepFinish = (fin) => {
-    fin===false? val.addClass("end") : location.href = "/CS121/kbc/results?timeout=true";
+    fin===false? val.addClass("end") : location.href = "/CS121/kbc/result?timeout=true";
 };
